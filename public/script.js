@@ -1,4 +1,4 @@
-const startBtn = document.getElementById("start");
+﻿const startBtn = document.getElementById("start");
 const saveBtn = document.getElementById("save");
 const noteField = document.getElementById("note");
 const notesList = document.getElementById("notesList");
