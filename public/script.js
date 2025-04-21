@@ -3,6 +3,7 @@ const saveBtn = document.getElementById("save");
 const noteField = document.getElementById("note");
 const notesList = document.getElementById("notesList");
 
+// Replace '<your-ip>' with your actual local IP address (e.g., 'http://192.168.1.5:3000')
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 recognition.continuous = true;
 recognition.interimResults = true;
@@ -50,7 +51,8 @@ saveBtn.addEventListener("click", async () => {
   const note = noteField.value.trim();
   if (note === "") return alert("Please speak something first.");
   try {
-    await fetch("http://localhost:3000/add-note", {
+    // Updated fetch URL with your local IP address
+    await fetch("http://10.2.18.245:3000/add-note", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ note }),
@@ -66,7 +68,8 @@ saveBtn.addEventListener("click", async () => {
 
 async function loadNotes() {
   try {
-    const res = await fetch("http://localhost:3000/notes");
+    // Updated fetch URL with your local IP address
+    const res = await fetch("http://10.2.18.245:3000/notes");
     const notes = await res.json();
     notesList.innerHTML = "";
     notes.forEach((n) => {
